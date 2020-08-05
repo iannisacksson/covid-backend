@@ -13,7 +13,7 @@ class Case extends Model {
         },
         date: Sequelize.DATE,
         state: Sequelize.STRING,
-        amounts_infected: Sequelize.INTEGER,
+        count: Sequelize.INTEGER,
       },
       {
         sequelize,

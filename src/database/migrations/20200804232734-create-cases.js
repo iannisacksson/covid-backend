@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      amounts_infected: {
+      count: {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: true,
