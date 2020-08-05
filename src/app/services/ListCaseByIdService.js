@@ -7,14 +7,14 @@ class ListCaseService {
     this.caseRepository = new CaseRepository();
   }
 
-  async execute() {
-    const cases = await this.caseRepository.findAllCases();
+  async execute(case_id) {
+    const caseExist = await this.caseRepository.findById(case_id);
 
-    if (!cases) {
-      throw new AppError('Cases not find');
+    if (!caseExist) {
+      throw new AppError('Case not find');
     }
 
-    return cases;
+    return caseExist;
   }
 }
 
