@@ -8,7 +8,7 @@ const caseController = new CaseController();
 routes.post('/cases', caseController.create);
 routes.get('/cases', caseController.all);
 routes.get('/cases/:id', caseController.index);
-routes.put('/cases', caseController.update);
+routes.put('/cases/:id', caseController.update);
 routes.delete('/cases/:id', caseController.delete);
 
 export default routes;

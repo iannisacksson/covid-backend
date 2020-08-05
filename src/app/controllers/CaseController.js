@@ -32,7 +32,9 @@ class CaseController {
   }
 
   async update(req, res) {
-    const updatedCase = await updateCaseService.execute(req.body);
+    const { id } = req.params;
+
+    const updatedCase = await updateCaseService.execute(id, req.body);
 
     return res.json(updatedCase);
   }

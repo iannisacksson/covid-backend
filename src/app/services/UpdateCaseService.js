@@ -7,10 +7,8 @@ class CreateCaseService {
     this.caseRepository = new CaseRepository();
   }
 
-  async execute(caseBody) {
-    const { state } = caseBody;
-
-    const stateExist = await this.caseRepository.findByState(state);
+  async execute(case_id, caseBody) {
+    const stateExist = await this.caseRepository.findById(case_id);
 
     if (!stateExist) {
       throw new AppError('Case not find');
