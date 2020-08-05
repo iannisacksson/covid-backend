@@ -13,7 +13,7 @@ class CreateCaseService {
     const stateExist = await this.caseRepository.findByState(state);
 
     if (!stateExist) {
-      throw new AppError('State not find');
+      throw new AppError('Case not find');
     }
 
     const caseUpdated = await this.caseRepository.update(caseBody, stateExist);

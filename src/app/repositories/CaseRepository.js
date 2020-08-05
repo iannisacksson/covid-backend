@@ -13,6 +13,12 @@ class CaseRepository {
     return listCase;
   }
 
+  async findById(id) {
+    const caseOne = await Case.findByPk(id);
+
+    return caseOne;
+  }
+
   async findAllCases() {
     const listCase = await Case.findAll();
 
@@ -25,6 +31,10 @@ class CaseRepository {
     const caseUpdated = await caseDB.update({ date, count });
 
     return caseUpdated;
+  }
+
+  async delete(caseDelete) {
+    await caseDelete.destroy();
   }
 }
 
