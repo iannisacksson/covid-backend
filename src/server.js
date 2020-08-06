@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
@@ -6,6 +7,8 @@ import routes from './routes';
 import AppError from './errors/AppError';
 
 import './database';
+
+dotenv.config();
 
 const app = express();
 
