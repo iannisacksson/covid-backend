@@ -1,7 +1,5 @@
 import CaseRepository from '../repositories/CaseRepository';
 
-import AppError from '../../errors/AppError';
-
 class CreateCaseService {
   constructor() {
     this.caseRepository = new CaseRepository();
@@ -13,7 +11,14 @@ class CreateCaseService {
     const stateExist = await this.caseRepository.findByState(state);
 
     if (stateExist) {
-      throw new AppError('State exist');
+      const { date, count } = caseBody;
+
+      const updatedCase = await this.caseRepository.update(
+        { date, count },
+        stateExist,
+      );
+
+      return updatedCase;
     }
 
     const newCase = await this.caseRepository.create(caseBody);
